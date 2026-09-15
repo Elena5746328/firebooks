@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Корзина — FIREBOOKS</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header class="header">
+  <div class="container header__inner">
+    <a href="/" class="logo">
+      <img src="/static/img/Безымянный-1.png" alt="FIREBOOKS" class="logo__img">
+    </a>
+
+    <nav class="nav">
+      <ul class="nav__list">
+        <li class="nav__item"><a href="/" class="nav__link">Каталог</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Мои книги</a></li>
+        <li class="nav__item"><a href="/cart" class="nav__link nav__link--active">Корзина</a></li>
+        <li class="nav__item"><a href="/orders" class="nav__link">Заказы</a></li>
+        <li class="nav__item user-dropdown">
+          <a href="#" class="nav__link nav__link--user" id="user-menu">
+            <span class="user-name">Елена</span>
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 1l5 5 5-5"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <form class="search" action="/search" method="get" role="search">
+      <input type="text" name="q" class="search__input" placeholder="Поиск книг...">
+      <button type="submit" class="search__btn" aria-label="Найти">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </form>
+  </div>
+</header>
+
+<!-- КОРЗИНА -->
+<section class="cart">
+  <div class="container">
+    <h1 class="cart__title">Корзина</h1>
+
+    <!-- Выбрать все -->
+    <div class="cart__select-all">
+      <input type="checkbox" id="select-all" class="checkbox">
+      <label for="select-all">Выбрать все товары</label>
+    </div>
+
+    <!-- Список товаров -->
+    <div class="cart__items">
+
+      <!-- Товар 1 -->
+      <div class="cart__item">
+        <input type="checkbox" id="item-1" class="checkbox" checked>
+
+        <div class="cart__product">
+          <div class="cart__image">
+            <img src="/static/img/019edea7-280d-7b3b-a3dd-57f2060de04c.jpg" alt="Императорский див">
+          </div>
+          <div class="cart__info">
+            <h3 class="cart__item-title">Императорский див (подарочное издание)</h3>
+            <p class="cart__author">Виктор Дашкевич</p>
+            <p class="cart__weight">0.55 кг</p>
+          </div>
+        </div>
+
+        <div class="cart__price">
+          <p class="cart__old-price">1 619 ₽</p>
+          <p class="cart__new-price">1 349 ₽</p>
+        </div>
+
+        <div class="cart__quantity">
+          <button class="btn--quantity" type="button" data-action="minus">−</button>
+          <input type="number" class="cart__input" value="1" min="1" readonly>
+          <button class="btn--quantity" type="button" data-action="plus">+</button>
+        </div>
+
+        <button class="btn--remove" type="button" aria-label="Удалить">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m3 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6h14z"/>
+            <line x1="10" y1="11" x2="10" y2="17"/>
+            <line x1="14" y1="11" x2="14" y2="17"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Подвал корзины -->
+    <div class="cart__footer">
+      <button class="btn btn--secondary" type="button" id="remove-selected">Удалить выбранное</button>
+      <div class="cart__summary">
+        <p class="cart__total-label">Итого: <span class="cart__total-price" id="cart-total">1 349 ₽</span></p>
+      </div>
+      <button class="btn--primary" type="button">Оформить заказ</button>
+    </div>
+  </div>
+</section>
+
+<!-- ФУТЕР -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__col">
+      <h3 class="footer__heading">О компании</h3>
+      <ul class="footer__list">
+        <li><a href="#">О FIREBOOKS</a></li>
+        <li><a href="#">Политика конфиденциальности</a></li>
+        <li><a href="#">Вакансии</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h3 class="footer__heading">Покупателям</h3>
+      <ul class="footer__list">
+        <li><a href="#">Программа лояльности</a></li>
+        <li><a href="#">Подарочные сертификаты</a></li>
+        <li><a href="#">Оплата и доставка</a></li>
+        <li><a href="#">Правила возврата</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h3 class="footer__heading">Контакты</h3>
+      <ul class="footer__list">
+        <li><a href="#">Контакты и реквизиты</a></li>
+        <li><a href="#">Помощь и ответы на вопросы</a></li>
+        <li><a href="#">Обратная связь</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <img src="/static/img/Безымянный-1.png" alt="FIREBOOKS" class="logo__img footer__logo">
+
+  <div class="container footer__bottom">
+    <div class="footer__socials">
+      <a href="#" class="social" aria-label="VK">VK</a>
+      <a href="#" class="social" aria-label="Telegram">TG</a>
+      <a href="#" class="social" aria-label="TikTok">TT</a>
+      <a href="#" class="social" aria-label="YouTube">YT</a>
+    </div>
+    <p class="footer__copyright">
+      2024–2026, ООО «ГРАМОТА»<br>
+      На информационном ресурсе применяются рекомендательные технологии
+    </p>
+  </div>
+</footer>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
+
