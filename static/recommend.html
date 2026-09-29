@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Рекомендательные технологии — FIREBOOKS</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header class="header">
+  <div class="container header__inner">
+    <a href="/" class="logo">
+      <img src="/static/img/Безымянный-1.png" alt="FIREBOOKS" class="logo__img">
+    </a>
+
+    <nav class="nav">
+      <ul class="nav__list">
+        <li class="nav__item"><a href="/" class="nav__link">Каталог</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Мои книги</a></li>
+        <li class="nav__item"><a href="/cart" class="nav__link">Корзина</a></li>
+        <li class="nav__item"><a href="/orders" class="nav__link">Заказы</a></li>
+        <li class="nav__item user-dropdown">
+          <a href="#" class="nav__link nav__link--user" id="user-menu">
+            <span class="user-name">Елена</span>
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 1l5 5 5-5"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <form class="search" action="/search" method="get" role="search">
+      <input type="text" name="q" class="search__input" placeholder="Поиск книг...">
+      <button type="submit" class="search__btn" aria-label="Найти">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </form>
+  </div>
+</header>
+
+<!-- КОНТЕНТ СТРАНИЦЫ -->
+<section class="recommend-page">
+  <div class="container">
+    <h1 class="recommend-page__title">Рекомендательные технологии</h1>
+
+    <p class="recommend-page__intro">
+      На информационном ресурсе при применении информационных технологий предоставления информации осуществляется сбор, систематизация и анализ сведений, относящихся к предпочтениям пользователей сети «Интернет», находящихся на территории Российской Федерации.
+    </p>
+
+    <div class="recommend-page__content">
+
+      <h2 class="recommend-page__heading">Правила применения рекомендательных технологий</h2>
+
+      <h3 class="recommend-page__subheading">1. Термины и определения</h3>
+
+      <p><strong>1.1.</strong> Рекомендательные технологии — информационные технологии предоставления информации на основе сбора, систематизации и анализа сведений, относящихся к предпочтениям пользователей сети «Интернет», находящихся на территории Российской Федерации.</p>
+
+      <p><strong>1.2.</strong> Сайт — сайт FIREBOOKS в сети «Интернет». Сайт принадлежит ООО «ГРАМОТА» (195277, г. Санкт-Петербург, Пироговская наб., д. 21, литера А, офис 63, часть помещ. 12-Н, ком. 29, ОГРН 1037706012376).</p>
+
+      <p><strong>1.3.</strong> Мобильное приложение — мобильное приложение «FIREBOOKS» в App Store, Google Play, Huawei AppGallery.</p>
+
+      <p><strong>1.4.</strong> Пользователь — лицо, пользователь сети «Интернет», обращающееся к Сайту или Мобильному приложению за получением необходимой ему информации о Товарах и использующее ее вне зависимости от факта его авторизации на Сайте или в Мобильном приложении.</p>
+
+      <p><strong>1.5.</strong> Товары — книжная и любая другая продукция, предлагаемая к приобретению через Сайт или Мобильное приложение.</p>
+
+      <p><strong>1.6.</strong> Рекомендация — предложение Пользователю Товаров на Сайте или в Мобильном приложении, в основе которого лежит предположение о том, что Товар наиболее релевантен Предпочтениям Пользователя.</p>
+
+      <p><strong>1.7.</strong> Предпочтения — действия, совершаемые Пользователем на Сайте или в Мобильном приложении.</p>
+
+      <p><strong>1.8.</strong> Рекомендательный сервис (алгоритм рекомендаций) — механизм, который принимает входящие к нему данные о Предпочтениях Пользователей, анализирует их и выдает наиболее релевантные Предпочтениям Пользователей Товары, то есть формирует Рекомендации.</p>
+
+      <h3 class="recommend-page__subheading">2. Виды сведений, относящихся к предпочтениям пользователей, которые используются для предоставления информации с применением рекомендательных технологий, источники получения таких сведений</h3>
+
+      <p><strong>2.1.</strong> Виды сведений о Пользователях, которые использует алгоритм рекомендаций для предсказания предпочтений Пользователей:</p>
+
+      <p><strong>2.1.1.</strong> Состав и даты заказов, история покупок на Сайте и в Мобильном приложении;</p>
+
+      <p><strong>2.1.2.</strong> Список Товаров и их оценка со стороны Пользователя (рейтинг, который указал Пользователь для конкретного Товара);</p>
+
+      <p><strong>2.1.3.</strong> Перечень Товаров, которые Пользователь добавил в раздел «Избранное» в личном кабинете на Сайте или в Мобильном приложении.</p>
+
+      <p><strong>2.2.</strong> Источник получения сведений о предпочтениях Пользователей для Рекомендаций — это поведение Пользователей на Сайте и в Мобильном приложении (в том числе, действия, указанные в п. 2.1 настоящих Правил).</p>
+
+      <p><strong>2.2.1.</strong> Пользователи могут влиять на факт показа Товаров, в том числе путем совершения следующих действий в рамках предоставляемой функциональности Сайта или Мобильного приложения:</p>
+
+      <p><strong>2.2.1.1.</strong> Совершение покупки Товара;</p>
+
+      <p><strong>2.2.1.2.</strong> Добавление Товара в раздел «Избранное» в личном кабинете на Сайте или в Мобильном приложении;</p>
+
+      <p><strong>2.2.1.3.</strong> Оценка (в т.ч. повышение/понижение) рейтинга Товара со стороны Пользователя.</p>
+
+      <h3 class="recommend-page__subheading">3. Описание процессов и методов сбора, систематизации, анализа сведений, относящихся к предпочтениям пользователей, предоставления информации на основе этих сведений, а также способов осуществления таких процессов и методов</h3>
+
+      <p><strong>3.1.</strong> Алгоритм рекомендательного сервиса использует данные п. 2.1 в двухуровневой архитектуре.</p>
+
+      <p><strong>3.1.1.</strong> На этапе поиска отвечает за выбор первоначального набора сотен рекомендаций из всех возможных Товаров.</p>
+
+      <p><strong>3.1.2.</strong> На этапе ранжирования выстраивает набор Товаров в порядке по принципу наибольшего соответствия Предпочтениям Пользователя.</p>
+
+      <h3 class="recommend-page__subheading">4. Адрес электронной почты для направления юридически значимых сообщений</h3>
+
+      <p>Направление юридически значимых сообщений осуществляется на адрес электронной почты: <a href="mailto:recommend.service@gramota.ru" class="recommend-page__email">recommend.service@gramota.ru</a>.</p>
+
+      <p class="recommend-page__company">Наименование юридического лица: ООО «ГРАМОТА»</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- ФУТЕР -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__col">
+      <h3 class="footer__heading">О компании</h3>
+      <ul class="footer__list">
+        <li><a href="#">О FIREBOOKS</a></li>
+        <li><a href="#">Политика конфиденциальности</a></li>
+        <li><a href="#">Вакансии</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h3 class="footer__heading">Покупателям</h3>
+      <ul class="footer__list">
+        <li><a href="#">Программа лояльности</a></li>
+        <li><a href="#">Подарочные сертификаты</a></li>
+        <li><a href="#">Оплата и доставка</a></li>
+        <li><a href="#">Правила возврата</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h3 class="footer__heading">Контакты</h3>
+      <ul class="footer__list">
+        <li><a href="#">Контакты и реквизиты</a></li>
+        <li><a href="#">Помощь и ответы на вопросы</a></li>
+        <li><a href="#">Обратная связь</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <img src="/static/img/Безымянный-1.png" alt="FIREBOOKS" class="logo__img footer__logo">
+
+  <div class="container footer__bottom">
+    <div class="footer__socials">
+      <a href="#" class="social" aria-label="VK">VK</a>
+      <a href="#" class="social" aria-label="Telegram">TG</a>
+      <a href="#" class="social" aria-label="TikTok">TT</a>
+      <a href="#" class="social" aria-label="YouTube">YT</a>
+    </div>
+    <p class="footer__copyright">
+      2024–2026, ООО «ГРАМОТА»<br>
+      <a href="/recommend" class="footer__recommend-link">На информационном ресурсе применяются рекомендательные технологии</a>
+    </p>
+  </div>
+</footer>
+
+<script src="/static/script.js"></script>
+</body>
+</html>

@@ -11,7 +11,6 @@ STATIC_DIR = BASE_DIR / "static"
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 
-
 class Book(BaseModel):
     id: int
     title: str
@@ -21,7 +20,7 @@ class Book(BaseModel):
     new_price: int
     discount: int
     full_title: str
-    rating: int         
+    rating: int
     cover_url: str
     status: str
 
@@ -31,7 +30,6 @@ class HeroBook(BaseModel):
     author: str
     description: str
     cover_url: str
-
 
 
 HERO_BOOK = HeroBook(
@@ -46,7 +44,6 @@ HERO_BOOK = HeroBook(
 
 
 def _book(idx: int) -> Book:
-    """Возвращает книгу-карточку."""
     return Book(
         id=idx,
         title="Без сожалений",
@@ -67,26 +64,26 @@ BOOKS_BESTSELLERS = [_book(i) for i in range(6, 11)]
 BOOKS_UPCOMING = [_book(i) for i in range(11, 16)]
 
 
+# --- API ---
+
 @app.get("/api/hero")
 async def get_hero():
     return HERO_BOOK
-
 
 @app.get("/api/books/new")
 async def get_new():
     return BOOKS_NEW
 
-
 @app.get("/api/books/bestsellers")
 async def get_bestsellers():
     return BOOKS_BESTSELLERS
-
 
 @app.get("/api/books/upcoming")
 async def get_upcoming():
     return BOOKS_UPCOMING
 
 
+# --- Страницы ---
 
 @app.get("/")
 async def index():
@@ -95,3 +92,27 @@ async def index():
 @app.get("/cart")
 async def cart():
     return FileResponse(STATIC_DIR / "cart.html")
+
+@app.get("/recommend")
+async def recommend():
+    return FileResponse(STATIC_DIR / "recommend.html")
+
+@app.get("/my-books")
+async def my_books():
+    return FileResponse(STATIC_DIR / "library.html")
+
+@app.get("/bookmarks")
+async def bookmarks():
+    return FileResponse(STATIC_DIR / "bookmarks.html")
+
+@app.get("/my-reviews")
+async def my_reviews():
+    return FileResponse(STATIC_DIR / "my-reviews.html")
+
+@app.get("/orders")
+async def orders():
+    return FileResponse(STATIC_DIR / "orders.html")
+
+@app.get("/profile")
+async def profile():
+    return FileResponse(STATIC_DIR / "profile.html")
