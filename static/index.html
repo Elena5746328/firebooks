@@ -71,6 +71,33 @@
   </div>
 </div>
 
+<!-- МОДАЛЬНОЕ ОКНО РЕГИСТРАЦИИ -->
+<div class="modal" id="register-modal">
+  <div class="modal__content">
+    <span class="modal__close" id="register-close">&times;</span>
+    <h3 class="modal__title">Регистрация</h3>
+
+    <form class="modal__form" id="register-form">
+      <div class="modal__field">
+        <label for="reg-name" class="modal__label">Имя</label>
+        <input type="text" id="reg-name" class="modal__input" placeholder="Введите ваше имя" required>
+      </div>
+      <div class="modal__field">
+        <label for="reg-email" class="modal__label">Email</label>
+        <input type="email" id="reg-email" class="modal__input" placeholder="example@mail.ru" required>
+      </div>
+      <div class="modal__field">
+        <label for="reg-password" class="modal__label">Пароль</label>
+        <input type="password" id="reg-password" class="modal__input" placeholder="Придумайте пароль" required>
+      </div>
+      <button type="submit" class="modal__btn">Зарегистрироваться</button>
+      <p class="modal__register">
+        Уже есть аккаунт? <a href="#" class="modal__login-link">Войти</a>
+      </p>
+    </form>
+  </div>
+</div>
+
 <!-- ─── Hero ─── -->
 <section class="hero">
   <div class="container hero__inner">

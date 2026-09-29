@@ -610,9 +610,16 @@ img { max-width: 100%; display: block; }
   transition: color 0.2s;
 }
 
-.modal__register-link:hover {
+.modal__login-link {
+  color: var(--brown);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.modal__login-link:hover {
   color: var(--burgundy);
 }
+
 
 /* ─── Корзина ───────────────────────────────────────────────── */
 
