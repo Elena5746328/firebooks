@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Заказы — FIREBOOKS</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/cabinet.css">
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header class="header">
+  <div class="container header__inner">
+    <a href="/" class="logo">
+      <img src="/static/img/Безымянный-1.png" alt="FIREBOOKS" class="logo__img">
+    </a>
+
+    <nav class="nav">
+      <ul class="nav__list">
+        <li class="nav__item"><a href="/" class="nav__link">Каталог</a></li>
+        <li class="nav__item"><a href="/my-books" class="nav__link">Мои книги</a></li>
+        <li class="nav__item"><a href="/cart" class="nav__link">Корзина</a></li>
+        <li class="nav__item"><a href="/orders" class="nav__link nav__link--active">Заказы</a></li>
+        <li class="nav__item user-dropdown">
+          <a href="#" class="nav__link nav__link--user" id="user-menu">
+            <span class="user-name">Елена</span>
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 1l5 5 5-5"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <form class="search" action="/search" method="get" role="search">
+      <input type="text" name="q" class="search__input" placeholder="Поиск книг...">
+      <button type="submit" class="search__btn" aria-label="Найти">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </form>
+  </div>
+</header>
+
+<!-- ЗАКАЗЫ -->
+<section class="cabinet">
+  <div class="container">
+    <h1 class="cabinet__title">Заказы</h1>
+
+    <!-- Новые заказы -->
+    <div class="cabinet__section">
+      <div class="section-head">
+        <h2 class="section-title">Новые заказы</h2>
+        <a href="#" class="section-all">Смотреть все →</a>
+      </div>
+
+      <div class="cabinet__grid">
+
+        <!-- Заказ 1 — Гордость и предубеждение -->
+        <div class="cabinet__card">
+          <div class="book-card">
+            <div class="book-card__cover">
+              <img src="/static/img/019c08a2-b492-7bfa-8af7-8da0e8c5ff85.png" alt="Гордость и предубеждение">
+              <span class="book-card__discount">-18%</span>
+              <button class="book-card__fav" aria-label="В избранное">♥</button>
+            </div>
+            <div class="book-card__info">
+              <p class="book-card__type">Твердая обложка</p>
+              <div class="book-card__prices">
+                <span class="book-card__old-price">792 ₽</span>
+                <span class="book-card__new-price">649 ₽</span>
+              </div>
+              <p class="book-card__title">Гордость и предубеждение. Вечные истории. Young Adult</p>
+              <p class="book-card__author">Джейн Остен</p>
+              <div class="book-card__rating">
+                <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+                <span class="book-card__reviews">482</span>
+              </div>
+              <button class="book-card__btn">Купить</button>
+            </div>
+          </div>
+          <div class="review-prompt">
+            <p class="review-prompt__text">Книга ждет вашей оценки и отзыва:</p>
+            <p class="review-prompt__question">Как вам эта книга?</p>
+            <div class="review-prompt__stars">
+              <span class="review-star" data-value="1">★</span>
+              <span class="review-star" data-value="2">★</span>
+              <span class="review-star" data-value="3">★</span>
+              <span class="review-star" data-value="4">★</span>
+              <span class="review-star" data-value="5">★</span>
+            </div>
+            <div class="review-prompt__bottom">
+              <button class="review-prompt__btn">Написать отзыв</button>
+              <span class="review-prompt__bonus">30 бонусов</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Заказ 2 — Скрытое королевство -->
+        <div class="cabinet__card">
+          <div class="book-card">
+            <div class="book-card__cover">
+              <img src="/static/img/0197d454-4d86-76b8-9ae7-e7ad9969b88d.png" alt="Скрытое королевство">
+              <span class="book-card__discount">-18%</span>
+              <button class="book-card__fav" aria-label="В избранное">♥</button>
+            </div>
+            <div class="book-card__info">
+              <p class="book-card__type">Твердая обложка</p>
+              <div class="book-card__prices">
+                <span class="book-card__old-price">1 219 ₽</span>
+                <span class="book-card__new-price">999 ₽</span>
+              </div>
+              <p class="book-card__title">Скрытое королевство</p>
+              <p class="book-card__author">Холли Рене</p>
+              <div class="book-card__rating">
+                <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+                <span class="book-card__reviews">321</span>
+              </div>
+              <button class="book-card__btn">Купить</button>
+            </div>
+          </div>
+          <div class="review-prompt">
+            <p class="review-prompt__text">Книга ждет вашей оценки и отзыва:</p>
+            <p class="review-prompt__question">Как вам эта книга?</p>
+            <div class="review-prompt__stars">
+              <span class="review-star" data-value="1">★</span>
+              <span class="review-star" data-value="2">★</span>
+              <span class="review-star" data-value="3">★</span>
+              <span class="review-star" data-value="4">★</span>
+              <span class="review-star" data-value="5">★</span>
+            </div>
+            <div class="review-prompt__bottom">
+              <button class="review-prompt__btn">Написать отзыв</button>
+              <span class="review-prompt__bonus">30 бонусов</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Завершённые заказы -->
+    <div class="cabinet__section">
+      <div class="section-head">
+        <h2 class="section-title">Завершённые заказы</h2>
+        <a href="#" class="section-all">Смотреть все →</a>
+      </div>
+
+      <div class="cabinet__grid">
+
+        <!-- Заказ 3 — Ониксовый шторм (с отзывом) -->
+        <div class="cabinet__card">
+          <div class="book-card">
+            <div class="book-card__cover">
+              <img src="/static/img/0195aee6-cec1-7604-96bf-083a79d9b6b5.png" alt="Ониксовый шторм">
+              <span class="book-card__discount">-17%</span>
+              <button class="book-card__fav" aria-label="В избранное">♥</button>
+            </div>
+            <div class="book-card__info">
+              <p class="book-card__type">Твердая обложка</p>
+              <div class="book-card__prices">
+                <span class="book-card__old-price">1 919 ₽</span>
+                <span class="book-card__new-price">1 599 ₽</span>
+              </div>
+              <p class="book-card__title">Ониксовый шторм (черный обрез)</p>
+              <p class="book-card__author">Ребекка Яррос</p>
+              <div class="book-card__rating">
+                <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+                <span class="book-card__reviews">991</span>
+              </div>
+              <button class="book-card__btn">Купить</button>
+            </div>
+          </div>
+          <div class="review-block">
+            <div class="review-block__header">
+              <div class="review-block__avatar">Е</div>
+              <span class="review-block__author">Елена</span>
+            </div>
+            <div class="review-block__rating">
+              <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+            </div>
+            <p class="review-block__text review-block__text--clamped">Потрясающее продолжение серии! Яррос умеет писать так, что не оторваться. Концовка оставила много вопросов — не терпится узнать, что будет дальше. Однозначно одна из лучших книг года.</p>
+            <button class="review-block__toggle">Читать больше</button>
+          </div>
+        </div>
+
+        <!-- Заказ 4 — Восточный дворец (с отзывом) -->
+        <div class="cabinet__card">
+          <div class="book-card">
+            <div class="book-card__cover">
+              <img src="/static/img/019ffba0-1384-70d0-a9bb-179260c9c57b.png" alt="Восточный дворец">
+              <span class="book-card__discount">-17%</span>
+              <button class="book-card__fav" aria-label="В избранное">♥</button>
+            </div>
+            <div class="book-card__info">
+              <p class="book-card__type">Мягкая обложка</p>
+              <div class="book-card__prices">
+                <span class="book-card__old-price">1 799 ₽</span>
+                <span class="book-card__new-price">1 499 ₽</span>
+              </div>
+              <p class="book-card__title">Восточный дворец: прощай моя принцесса (комплект из 2 книг)</p>
+              <p class="book-card__author">Сыцунь Фэйво</p>
+              <div class="book-card__rating">
+                <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+                <span class="book-card__reviews">43</span>
+              </div>
+              <button class="book-card__btn">Купить</button>
+            </div>
+          </div>
+          <div class="review-block">
+            <div class="review-block__header">
+              <div class="review-block__avatar">Е</div>
+              <span class="review-block__author">Елена</span>
+            </div>
+            <div class="review-block__rating">
+              <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+            </div>
+            <p class="review-block__text review-block__text--clamped">Восторг! Прочитала взахлёб. Сначала казалось, что повествование затянуто, но потом каждое слово встало на своё место. Обязательно прочтите послесловие — оно меняет восприятие всей истории.</p>
+            <button class="review-block__toggle">Читать больше</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ФУТЕР -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__col">
+      <h3 class="footer__heading">О компании</h3>
+      <ul class="footer__list">
+        <li><a href="#">О FIREBOOKS</a></li>
+        <li><a href="#">Политика конфиденциальности</a></li>
+        <li><a href="#">Вакансии</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h3 class="footer__heading">Покупателям</h3>
+      <ul class="footer__list">
+        <li><a href="#">Программа лояльности</a></li>
+        <li><a href="#">Подарочные сертификаты</a></li>
+        <li><a href="#">Оплата и доставка</a></li>
+        <li><a href="#">Правила возврата</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h3 class="footer__heading">Контакты</h3>
+      <ul class="footer__list">
+        <li><a href="#">Контакты и реквизиты</a></li>
+        <li><a href="#">Помощь и ответы на вопросы</a></li>
+        <li><a href="#">Обратная связь</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <img src="/static/img/Безымянный-1.png" alt="FIREBOOKS" class="logo__img footer__logo">
+
+  <div class="container footer__bottom">
+    <div class="footer__socials">
+      <a href="#" class="social" aria-label="VK">VK</a>
+      <a href="#" class="social" aria-label="Telegram">TG</a>
+      <a href="#" class="social" aria-label="TikTok">TT</a>
+      <a href="#" class="social" aria-label="YouTube">YT</a>
+    </div>
+    <p class="footer__copyright">
+      2024–2026, ООО «ГРАМОТА»<br>
+      <a href="/recommend" class="footer__recommend-link">На информационном ресурсе применяются рекомендательные технологии</a>
+    </p>
+  </div>
+</footer>
+
+<script src="/static/script.js"></script>
+<script src="/static/cabinet.js"></script>
+</body>
+</html>

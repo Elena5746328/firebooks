@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Библиотека — FIREBOOKS</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/cabinet.css">
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header class="header">
+  <div class="container header__inner">
+    <a href="/" class="logo">
+      <img src="/static/img/Безымянный-1.png" alt="FIREBOOKS" class="logo__img">
+    </a>
+
+    <nav class="nav">
+      <ul class="nav__list">
+        <li class="nav__item"><a href="/" class="nav__link">Каталог</a></li>
+        <li class="nav__item"><a href="/my-books" class="nav__link nav__link--active">Мои книги</a></li>
+        <li class="nav__item"><a href="/cart" class="nav__link">Корзина</a></li>
+        <li class="nav__item"><a href="/orders" class="nav__link">Заказы</a></li>
+        <li class="nav__item user-dropdown">
+          <a href="#" class="nav__link nav__link--user" id="user-menu">
+            <span class="user-name">Елена</span>
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 1l5 5 5-5"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <form class="search" action="/search" method="get" role="search">
+      <input type="text" name="q" class="search__input" placeholder="Поиск книг...">
+      <button type="submit" class="search__btn" aria-label="Найти">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </form>
+  </div>
+</header>
+
+<!-- КАБИНЕТ -->
+<section class="cabinet">
+  <div class="cabinet__wrapper">
+
+    <!-- САЙДБАР -->
+    <aside class="sidebar">
+      <div class="sidebar__user">
+        <div class="sidebar__avatar">Е</div>
+        <span class="sidebar__name">Елена</span>
+      </div>
+
+      <nav class="sidebar__nav">
+        <a href="/my-books" class="sidebar__item sidebar__item--active">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+          </svg>
+          <span class="sidebar__label">Библиотека</span>
+          <span class="sidebar__badge">30</span>
+        </a>
+        <a href="/bookmarks" class="sidebar__item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/>
+          </svg>
+          <span class="sidebar__label">Закладки</span>
+          <span class="sidebar__badge">14</span>
+        </a>
+        <a href="/my-reviews" class="sidebar__item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+          </svg>
+          <span class="sidebar__label">Мои отзывы</span>
+          <span class="sidebar__badge">50</span>
+        </a>
+      </nav>
+
+      <div class="sidebar__bottom">
+        <a href="/" class="sidebar__bottom-link">Каталог</a>
+        <a href="/cart" class="sidebar__bottom-link">Корзина</a>
+        <a href="/orders" class="sidebar__bottom-link">Заказы</a>
+      </div>
+    </aside>
+
+    <!-- КОНТЕНТ -->
+    <div class="cabinet__content">
+      <h1 class="cabinet__title">Библиотека</h1>
+
+      <div class="cabinet__grid">
+
+        <!-- Книга 1 — Скорбь Сатаны -->
+        <div class="cabinet__card">
+          <div class="book-card">
+            <div class="book-card__cover">
+              <img src="/static/img/019b117b-276e-7d13-b66f-c37af1dc6798.png" alt="Скорбь Сатаны">
+              <span class="book-card__discount">-18%</span>
+              <button class="book-card__fav active" aria-label="В избранное">♥</button>
+            </div>
+            <div class="book-card__info">
+              <p class="book-card__type">Твердая обложка</p>
+              <div class="book-card__prices">
+                <span class="book-card__old-price">889 ₽</span>
+                <span class="book-card__new-price">729 ₽</span>
+              </div>
+              <p class="book-card__title">Скорбь Сатаны. Вечные истории. Young Adult</p>
+              <p class="book-card__author">Мария Корелли</p>
+              <div class="book-card__rating">
+                <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+                <span class="book-card__reviews">113</span>
+              </div>
+              <button class="book-card__btn">Купить</button>
+            </div>
+          </div>
+          <div class="review-prompt">
+            <p class="review-prompt__text">Книга ждет вашей оценки и отзыва:</p>
+            <p class="review-prompt__question">Как вам эта книга?</p>
+            <div class="review-prompt__stars">
+              <span class="review-star" data-value="1">★</span>
+              <span class="review-star" data-value="2">★</span>
+              <span class="review-star" data-value="3">★</span>
+              <span class="review-star" data-value="4">★</span>
+              <span class="review-star" data-value="5">★</span>
+            </div>
+            <div class="review-prompt__bottom">
+              <button class="review-prompt__btn">Написать отзыв</button>
+              <span class="review-prompt__bonus">30 бонусов</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Книга 2 — Неночь -->
+        <div class="cabinet__card">
+          <div class="book-card">
+            <div class="book-card__cover">
+              <img src="/static/img/019d333a-63f4-7406-b0dd-d6180c58550b.png" alt="Неночь">
+              <span class="book-card__discount">-17%</span>
+              <button class="book-card__fav active" aria-label="В избранное">♥</button>
+            </div>
+            <div class="book-card__info">
+              <p class="book-card__type">Твердая обложка</p>
+              <div class="book-card__prices">
+                <span class="book-card__old-price">1 419 ₽</span>
+                <span class="book-card__new-price">1 199 ₽</span>
+              </div>
+              <p class="book-card__title">Неночь (новая редакция)</p>
+              <p class="book-card__author">Джей Кристофф</p>
+              <div class="book-card__rating">
+                <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+                <span class="star">★</span>
+                <span class="book-card__reviews">46</span>
+              </div>
+              <button class="book-card__btn">Купить</button>
+            </div>
+          </div>
+          <div class="review-prompt">
+            <p class="review-prompt__text">Книга ждет вашей оценки и отзыва:</p>
+            <p class="review-prompt__question">Как вам эта книга?</p>
+            <div class="review-prompt__stars">
+              <span class="review-star" data-value="1">★</span>
+              <span class="review-star" data-value="2">★</span>
+              <span class="review-star" data-value="3">★</span>
+              <span class="review-star" data-value="4">★</span>
+              <span class="review-star" data-value="5">★</span>
+            </div>
+            <div class="review-prompt__bottom">
+              <button class="review-prompt__btn">Написать отзыв</button>
+              <span class="review-prompt__bonus">30 бонусов</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Книга 3 — Призрак Оперы -->
+        <div class="cabinet__card">
+          <div class="book-card">
+            <div class="book-card__cover">
+              <img src="/static/img/0190390d-f770-725a-97ce-fc1b88f7c56a.png" alt="Призрак Оперы">
+              <span class="book-card__discount">-18%</span>
+              <button class="book-card__fav active" aria-label="В избранное">♥</button>
+            </div>
+            <div class="book-card__info">
+              <p class="book-card__type">Твердая обложка</p>
+              <div class="book-card__prices">
+                <span class="book-card__old-price">706 ₽</span>
+                <span class="book-card__new-price">579 ₽</span>
+              </div>
+              <p class="book-card__title">Призрак Оперы. Вечные истории. Young Adult</p>
+              <p class="book-card__author">Гастон Леру</p>
+              <div class="book-card__rating">
+                <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+                <span class="book-card__reviews">266</span>
+              </div>
+              <button class="book-card__btn">Купить</button>
+            </div>
+          </div>
+          <div class="review-prompt">
+            <p class="review-prompt__text">Книга ждет вашей оценки и отзыва:</p>
+            <p class="review-prompt__question">Как вам эта книга?</p>
+            <div class="review-prompt__stars">
+              <span class="review-star" data-value="1">★</span>
+              <span class="review-star" data-value="2">★</span>
+              <span class="review-star" data-value="3">★</span>
+              <span class="review-star" data-value="4">★</span>
+              <span class="review-star" data-value="5">★</span>
+            </div>
+            <div class="review-prompt__bottom">
+              <button class="review-prompt__btn">Написать отзыв</button>
+              <span class="review-prompt__bonus">30 бонусов</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Книга 4 — Игра Престолов -->
+        <div class="cabinet__card">
+          <div class="book-card">
+            <div class="book-card__cover">
+              <img src="/static/img/019e6d6c-7f54-7725-99a0-9b3d16b192d6.png" alt="Игра Престолов">
+              <span class="book-card__discount">-17%</span>
+              <button class="book-card__fav active" aria-label="В избранное">♥</button>
+            </div>
+            <div class="book-card__info">
+              <p class="book-card__type">Твердая обложка</p>
+              <div class="book-card__prices">
+                <span class="book-card__old-price">2 399 ₽</span>
+                <span class="book-card__new-price">1 999 ₽</span>
+              </div>
+              <p class="book-card__title">Игра Престолов</p>
+              <p class="book-card__author">Джордж Р.Р. Мартин</p>
+              <div class="book-card__rating">
+                <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+                <span class="book-card__reviews">1799</span>
+              </div>
+              <button class="book-card__btn">Купить</button>
+            </div>
+          </div>
+          <div class="review-prompt">
+            <p class="review-prompt__text">Книга ждет вашей оценки и отзыва:</p>
+            <p class="review-prompt__question">Как вам эта книга?</p>
+            <div class="review-prompt__stars">
+              <span class="review-star" data-value="1">★</span>
+              <span class="review-star" data-value="2">★</span>
+              <span class="review-star" data-value="3">★</span>
+              <span class="review-star" data-value="4">★</span>
+              <span class="review-star" data-value="5">★</span>
+            </div>
+            <div class="review-prompt__bottom">
+              <button class="review-prompt__btn">Написать отзыв</button>
+              <span class="review-prompt__bonus">30 бонусов</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Отзывы читателей с похожими вкусами -->
+      <div class="cabinet__section">
+        <div class="section-head">
+          <h2 class="section-title">Отзывы читателей с похожими вкусами</h2>
+        </div>
+
+        <div class="cabinet__grid">
+
+          <!-- Отзыв — Ониксовый шторм -->
+          <div class="cabinet__card">
+            <div class="book-card">
+              <div class="book-card__cover">
+                <img src="/static/img/0195aee6-cec1-7604-96bf-083a79d9b6b5.png" alt="Ониксовый шторм">
+                <span class="book-card__discount">-17%</span>
+                <button class="book-card__fav" aria-label="В избранное">♥</button>
+              </div>
+              <div class="book-card__info">
+                <p class="book-card__type">Твердая обложка</p>
+                <div class="book-card__prices">
+                  <span class="book-card__old-price">1 919 ₽</span>
+                  <span class="book-card__new-price">1 599 ₽</span>
+                </div>
+                <p class="book-card__title">Ониксовый шторм (черный обрез)</p>
+                <p class="book-card__author">Ребекка Яррос</p>
+                <div class="book-card__rating">
+                  <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+                  <span class="book-card__reviews">991</span>
+                </div>
+                <button class="book-card__btn">Купить</button>
+              </div>
+            </div>
+            <div class="review-block">
+              <div class="review-block__header">
+                <div class="review-block__avatar">А</div>
+                <span class="review-block__author">Ангелина</span>
+              </div>
+              <div class="review-block__rating">
+                <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+              </div>
+              <p class="review-block__text review-block__text--clamped">«Ониксовый шторм» Ребекки Яррос — это третья часть из цикла «Эмпирей» и продолжение книги «Ониксовый шторм». Это было очень интересно. В какой-то момент было очень грустно, а в следующий — мурашки по коже… Очень жду продолжения цикла «Эмпирей», безумно интересно, что случится с Ксейденом. Рекомендую!</p>
+              <button class="review-block__toggle">Читать больше</button>
+            </div>
+          </div>
+
+          <!-- Отзыв — Мара и Морок -->
+          <div class="cabinet__card">
+            <div class="book-card">
+              <div class="book-card__cover">
+                <img src="/static/img/019d2894-9efb-7478-8fcf-e06b5a679917.png" alt="Мара и Морок">
+                <span class="book-card__discount">-18%</span>
+                <button class="book-card__fav" aria-label="В избранное">♥</button>
+              </div>
+              <div class="book-card__info">
+                <p class="book-card__type">Твердая обложка</p>
+                <div class="book-card__prices">
+                  <span class="book-card__old-price">1 036 ₽</span>
+                  <span class="book-card__new-price">849 ₽</span>
+                </div>
+                <p class="book-card__title">Мара и Морок. Особенная Тень</p>
+                <p class="book-card__author">Лия Арден</p>
+                <div class="book-card__rating">
+                  <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+                  <span class="book-card__reviews">678</span>
+                </div>
+                <button class="book-card__btn">Купить</button>
+              </div>
+            </div>
+            <div class="review-block">
+              <div class="review-block__header">
+                <div class="review-block__avatar">В</div>
+                <span class="review-block__author">Василиса</span>
+              </div>
+              <div class="review-block__rating">
+                <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+              </div>
+              <p class="review-block__text review-block__text--clamped">ЭТО БЫЛО ПРОСТО ПРЕКРАСНО!!!! У МЕНЯ ВООБЩЕ НЕТ СЛОВ, ТОЛЬКО ЭМОЦИИ. МНЕ ОЧЕНЬ ПОНРАВИЛАСЬ КНИГА! ЭТО НЕ 5/5, ЭТО 10000000000/5. А как я плакала, когда были некоторые моменты… Тем, кто любит славянскую мифологию, да и вообще фэнтези в целом — обязательно к прочтению!</p>
+              <button class="review-block__toggle">Читать больше</button>
+            </div>
+          </div>
+
+          <!-- Отзыв — Восточный дворец -->
+          <div class="cabinet__card">
+            <div class="book-card">
+              <div class="book-card__cover">
+                <img src="/static/img/019ffba0-1384-70d0-a9bb-179260c9c57b.png" alt="Восточный дворец">
+                <span class="book-card__discount">-17%</span>
+                <button class="book-card__fav" aria-label="В избранное">♥</button>
+              </div>
+              <div class="book-card__info">
+                <p class="book-card__type">Мягкая обложка</p>
+                <div class="book-card__prices">
+                  <span class="book-card__old-price">1 799 ₽</span>
+                  <span class="book-card__new-price">1 499 ₽</span>
+                </div>
+                <p class="book-card__title">Восточный дворец: прощай моя принцесса (комплект из 2 книг)</p>
+                <p class="book-card__author">Сыцунь Фэйво</p>
+                <div class="book-card__rating">
+                  <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+                  <span class="book-card__reviews">43</span>
+                </div>
+                <button class="book-card__btn">Купить</button>
+              </div>
+            </div>
+            <div class="review-block">
+              <div class="review-block__header">
+                <div class="review-block__avatar">А</div>
+                <span class="review-block__author">Анастасия</span>
+              </div>
+              <div class="review-block__rating">
+                <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+              </div>
+              <p class="review-block__text review-block__text--clamped">Это восторг. Это стекло. Это очень хорошо. Повествование порой может казаться затянутым, но, поверьте, каждое слово в этой книге написано не просто так. Прочитала взахлеб. На отношения персонажей можно смотреть по-разному, но обязательно прочтите послесловие. Сначала я осуждала персонажей, казалось, что они, как обычно…</p>
+              <button class="review-block__toggle">Читать больше</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ФУТЕР -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__col">
+      <h3 class="footer__heading">О компании</h3>
+      <ul class="footer__list">
+        <li><a href="#">О FIREBOOKS</a></li>
+        <li><a href="#">Политика конфиденциальности</a></li>
+        <li><a href="#">Вакансии</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h3 class="footer__heading">Покупателям</h3>
+      <ul class="footer__list">
+        <li><a href="#">Программа лояльности</a></li>
+        <li><a href="#">Подарочные сертификаты</a></li>
+        <li><a href="#">Оплата и доставка</a></li>
+        <li><a href="#">Правила возврата</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h3 class="footer__heading">Контакты</h3>
+      <ul class="footer__list">
+        <li><a href="#">Контакты и реквизиты</a></li>
+        <li><a href="#">Помощь и ответы на вопросы</a></li>
+        <li><a href="#">Обратная связь</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <img src="/static/img/Безымянный-1.png" alt="FIREBOOKS" class="logo__img footer__logo">
+
+  <div class="container footer__bottom">
+    <div class="footer__socials">
+      <a href="#" class="social" aria-label="VK">VK</a>
+      <a href="#" class="social" aria-label="Telegram">TG</a>
+      <a href="#" class="social" aria-label="TikTok">TT</a>
+      <a href="#" class="social" aria-label="YouTube">YT</a>
+    </div>
+    <p class="footer__copyright">
+      2024–2026, ООО «ГРАМОТА»<br>
+      <a href="/recommend" class="footer__recommend-link">На информационном ресурсе применяются рекомендательные технологии</a>
+    </p>
+  </div>
+</footer>
+
+<script src="/static/script.js"></script>
+<script src="/static/cabinet.js"></script>
+</body>
+</html>

@@ -253,3 +253,80 @@ document.addEventListener('DOMContentLoaded', function () {
     cb.addEventListener('change', updateTotal);
   });
 });
+
+// ─── Интерактивные звёзды оценки ──────────────────────────────
+
+document.addEventListener('DOMContentLoaded', function () {
+  var promptStars = document.querySelectorAll('.review-prompt__stars');
+
+  promptStars.forEach(function (container) {
+    var stars = container.querySelectorAll('.review-star');
+    var selectedValue = 0;
+
+    stars.forEach(function (star) {
+      // Наведение — подсветка
+      star.addEventListener('mouseenter', function () {
+        var value = parseInt(star.dataset.value);
+        stars.forEach(function (s) {
+          s.classList.toggle('filled', parseInt(s.dataset.value) <= value);
+        });
+      });
+
+      // Клик — фиксация оценки
+      star.addEventListener('click', function () {
+        selectedValue = parseInt(star.dataset.value);
+        stars.forEach(function (s) {
+          s.classList.toggle('filled', parseInt(s.dataset.value) <= selectedValue);
+        });
+      });
+    });
+
+    // Уход мыши — возврат к зафиксированному состоянию
+    container.addEventListener('mouseleave', function () {
+      stars.forEach(function (s) {
+        s.classList.toggle('filled', parseInt(s.dataset.value) <= selectedValue);
+      });
+    });
+  });
+
+  // ─── «Читать больше» / «Свернуть» ────────────────────────────
+
+  var toggleBtns = document.querySelectorAll('.review-block__toggle');
+
+  toggleBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.previousElementSibling;
+
+      if (text.classList.contains('review-block__text--clamped')) {
+        text.classList.remove('review-block__text--clamped');
+        btn.textContent = 'Свернуть';
+      } else {
+        text.classList.add('review-block__text--clamped');
+        btn.textContent = 'Читать больше';
+      }
+    });
+  });
+
+  // ─── Удаление из закладок по клику на сердечко ──────────────
+
+  var favBtns = document.querySelectorAll('.book-card__fav');
+
+  favBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      // Если сердечко было активным — удаляем карточку
+      if (btn.classList.contains('active')) {
+        var card = btn.closest('.cabinet__card');
+        if (card) {
+          card.style.transition = 'opacity 0.3s, transform 0.3s';
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.95)';
+          setTimeout(function () {
+            card.remove();
+          }, 300);
+        }
+      } else {
+        btn.classList.add('active');
+      }
+    });
+  });
+});

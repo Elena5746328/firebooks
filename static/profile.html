@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профиль — FIREBOOKS</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/cabinet.css">
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header class="header">
+  <div class="container header__inner">
+    <a href="/" class="logo">
+      <img src="/static/img/Безымянный-1.png" alt="FIREBOOKS" class="logo__img">
+    </a>
+
+    <nav class="nav">
+      <ul class="nav__list">
+        <li class="nav__item"><a href="/" class="nav__link">Каталог</a></li>
+        <li class="nav__item"><a href="/my-books" class="nav__link">Мои книги</a></li>
+        <li class="nav__item"><a href="/cart" class="nav__link">Корзина</a></li>
+        <li class="nav__item"><a href="/orders" class="nav__link">Заказы</a></li>
+        <li class="nav__item user-dropdown">
+          <a href="/profile" class="nav__link nav__link--user" id="user-menu">
+            <span class="user-name">Елена</span>
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 1l5 5 5-5"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <form class="search" action="/search" method="get" role="search">
+      <input type="text" name="q" class="search__input" placeholder="Поиск книг...">
+      <button type="submit" class="search__btn" aria-label="Найти">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </form>
+  </div>
+</header>
+
+<!-- ПРОФИЛЬ -->
+<section class="cabinet">
+  <div class="cabinet__wrapper">
+
+    <!-- САЙДБАР -->
+    <aside class="sidebar">
+      <div class="sidebar__user">
+        <div class="sidebar__avatar">Е</div>
+        <span class="sidebar__name">Елена</span>
+      </div>
+
+      <nav class="sidebar__nav">
+        <a href="/my-books" class="sidebar__item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+          </svg>
+          <span class="sidebar__label">Библиотека</span>
+          <span class="sidebar__badge">30</span>
+        </a>
+        <a href="/bookmarks" class="sidebar__item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/>
+          </svg>
+          <span class="sidebar__label">Закладки</span>
+          <span class="sidebar__badge">14</span>
+        </a>
+        <a href="/my-reviews" class="sidebar__item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+          </svg>
+          <span class="sidebar__label">Мои отзывы</span>
+          <span class="sidebar__badge">50</span>
+        </a>
+        <a href="/profile" class="sidebar__item sidebar__item--active">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <span class="sidebar__label">Профиль</span>
+        </a>
+      </nav>
+
+      <div class="sidebar__bottom">
+        <a href="/" class="sidebar__bottom-link">Каталог</a>
+        <a href="/cart" class="sidebar__bottom-link">Корзина</a>
+        <a href="/orders" class="sidebar__bottom-link">Заказы</a>
+      </div>
+    </aside>
+
+    <!-- КОНТЕНТ -->
+    <div class="cabinet__content">
+      <h1 class="cabinet__title">Профиль</h1>
+
+      <!-- Личные данные -->
+      <div class="profile__section">
+        <h2 class="profile__heading">Личные данные</h2>
+        <div class="profile__data">
+          <div class="profile__data-row">
+            <div class="profile__data-item">
+              <p class="profile__data-label">ФИО</p>
+              <p class="profile__data-value">Ефимова Елена</p>
+            </div>
+            <div class="profile__data-item">
+              <p class="profile__data-label">Телефон</p>
+              <p class="profile__data-value">+7 (999) 999-99-99</p>
+            </div>
+            <div class="profile__data-item">
+              <p class="profile__data-label">Email</p>
+              <p class="profile__data-value">thequeenofbooks14_14@yandex.ru</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карта любимого покупателя -->
+      <div class="profile__section">
+        <h2 class="profile__heading">Карта любимого покупателя</h2>
+        <div class="loyalty-card">
+          <div class="loyalty-card__left">
+            <div class="loyalty-card__bonus-block">
+              <p class="loyalty-card__bonus-pending">+975 бонусов скоро начислим</p>
+              <p class="loyalty-card__bonus-current">17 бонусов</p>
+            </div>
+            <p class="loyalty-card__hint">1 бонус равен 1 рублю. Бонусами можно оплатить до 100% от суммы чека в интернет-магазине и в магазинах сети. На вашем бонусном счёте может быть не более 5 000 бонусов.</p>
+          </div>
+          <div class="loyalty-card__right">
+            <div class="loyalty-card__stat">
+              <p class="loyalty-card__stat-value">15%</p>
+              <p class="loyalty-card__stat-label">Процент начисления за покупки</p>
+            </div>
+            <div class="loyalty-card__stat">
+              <p class="loyalty-card__stat-value">20 070 ₽</p>
+              <p class="loyalty-card__stat-label">Сумма ваших покупок</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Активные заказы -->
+      <div class="profile__section">
+        <div class="section-head">
+          <h2 class="section-title">Активные заказы</h2>
+          <a href="/orders" class="section-all">Смотреть все →</a>
+        </div>
+
+        <div class="order-card">
+          <div class="order-card__header">
+            <div class="order-card__info">
+              <p class="order-card__number">Заказ №109480606</p>
+              <p class="order-card__date">Создан: <strong>24 июня</strong></p>
+            </div>
+            <span class="order-card__status order-card__status--preorder">Предзаказ</span>
+          </div>
+
+          <p class="order-card__delivery">Ожидаем новинку от издательства: дата доставки появится после поступления товара</p>
+
+          <div class="order-card__body">
+            <div class="order-card__product">
+              <img src="/static/img/019ef417-b839-71ee-8588-262d16e1b87d.jpg" alt="Голодные игры. Заключительная часть" class="order-card__cover">
+              <div class="order-card__product-info">
+                <p class="order-card__product-title">Заключительная часть культовой трилогии «Голодные игры»</p>
+                <p class="order-card__product-payment">Оплата при получении</p>
+              </div>
+            </div>
+            <div class="order-card__footer">
+              <p class="order-card__price">1 739 ₽</p>
+              <button class="order-card__cancel">Отменить заказ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Активные бронирования -->
+      <div class="profile__section">
+        <h2 class="profile__heading">Активные бронирования</h2>
+        <div class="profile__empty">
+          <p class="profile__empty-text">У вас пока нет активных бронирований</p>
+        </div>
+      </div>
+
+      <!-- Закладки -->
+      <div class="profile__section">
+        <div class="section-head">
+          <h2 class="section-title">Закладки</h2>
+          <a href="/bookmarks" class="section-all">Смотреть все →</a>
+        </div>
+
+        <div class="cabinet__grid">
+
+          <!-- Книга 1 — Четыре Дракона -->
+          <div class="cabinet__card">
+            <div class="book-card">
+              <div class="book-card__cover">
+                <img src="/static/img/019e6a51-bd44-73ee-84e7-f108dfe34092.png" alt="Четыре Дракона">
+                <span class="book-card__discount">-17%</span>
+                <button class="book-card__fav active" aria-label="В избранное">♥</button>
+              </div>
+              <div class="book-card__info">
+                <p class="book-card__type">Твердая обложка</p>
+                <div class="book-card__prices">
+                  <span class="book-card__old-price">3 719 ₽</span>
+                  <span class="book-card__new-price">3 099 ₽</span>
+                </div>
+                <p class="book-card__title">Четыре Дракона. Дилогия (подарочное издание)</p>
+                <p class="book-card__author">Лия Арден</p>
+                <div class="book-card__rating">
+                  <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+                  <span class="book-card__reviews">180</span>
+                </div>
+                <button class="book-card__btn">Купить</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Книга 2 — Неночь -->
+          <div class="cabinet__card">
+            <div class="book-card">
+              <div class="book-card__cover">
+                <img src="/static/img/019d333a-63f4-7406-b0dd-d6180c58550b.png" alt="Неночь">
+                <span class="book-card__discount">-17%</span>
+                <button class="book-card__fav active" aria-label="В избранное">♥</button>
+              </div>
+              <div class="book-card__info">
+                <p class="book-card__type">Твердая обложка</p>
+                <div class="book-card__prices">
+                  <span class="book-card__old-price">1 419 ₽</span>
+                  <span class="book-card__new-price">1 199 ₽</span>
+                </div>
+                <p class="book-card__title">Неночь (новая редакция)</p>
+                <p class="book-card__author">Джей Кристофф</p>
+                <div class="book-card__rating">
+                  <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+                  <span class="star">★</span>
+                  <span class="book-card__reviews">46</span>
+                </div>
+                <button class="book-card__btn">Купить</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Книга 3 — Игра Престолов -->
+          <div class="cabinet__card">
+            <div class="book-card">
+              <div class="book-card__cover">
+                <img src="/static/img/019e6d6c-7f54-7725-99a0-9b3d16b192d6.png" alt="Игра Престолов">
+                <span class="book-card__discount">-17%</span>
+                <button class="book-card__fav active" aria-label="В избранное">♥</button>
+              </div>
+              <div class="book-card__info">
+                <p class="book-card__type">Твердая обложка</p>
+                <div class="book-card__prices">
+                  <span class="book-card__old-price">2 399 ₽</span>
+                  <span class="book-card__new-price">1 999 ₽</span>
+                </div>
+                <p class="book-card__title">Игра Престолов</p>
+                <p class="book-card__author">Джордж Р.Р. Мартин</p>
+                <div class="book-card__rating">
+                  <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+                  <span class="book-card__reviews">1799</span>
+                </div>
+                <button class="book-card__btn">Купить</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Книга 4 — Собор Парижской Богоматери -->
+          <div class="cabinet__card">
+            <div class="book-card">
+              <div class="book-card__cover">
+                <img src="/static/img/018f61f1-cd8c-70cf-8fda-7bdb4b99e395.png" alt="Собор Парижской Богоматери">
+                <span class="book-card__discount">-18%</span>
+                <button class="book-card__fav active" aria-label="В избранное">♥</button>
+              </div>
+              <div class="book-card__info">
+                <p class="book-card__type">Твердая обложка</p>
+                <div class="book-card__prices">
+                  <span class="book-card__old-price">975 ₽</span>
+                  <span class="book-card__new-price">799 ₽</span>
+                </div>
+                <p class="book-card__title">Собор Парижской Богоматери. Вечные истории. Young Adult</p>
+                <p class="book-card__author">Виктор Мари Гюго</p>
+                <div class="book-card__rating">
+                  <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+                  <span class="book-card__reviews">254</span>
+                </div>
+                <button class="book-card__btn">Купить</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Книга 5 — В ритме сердца -->
+          <div class="cabinet__card">
+            <div class="book-card">
+              <div class="book-card__cover">
+                <img src="/static/img/019e064c-c08d-7b6a-9c1e-1d67138eaa1b.png" alt="В ритме сердца">
+                <span class="book-card__discount">-17%</span>
+                <button class="book-card__fav active" aria-label="В избранное">♥</button>
+              </div>
+              <div class="book-card__info">
+                <p class="book-card__type">Твердая обложка</p>
+                <div class="book-card__prices">
+                  <span class="book-card__old-price">1 055 ₽</span>
+                  <span class="book-card__new-price">879 ₽</span>
+                </div>
+                <p class="book-card__title">В ритме сердца</p>
+                <p class="book-card__author">Тори Майрен</p>
+                <div class="book-card__rating">
+                  <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+                  <span class="book-card__reviews">275</span>
+                </div>
+                <button class="book-card__btn">Купить</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Книга 6 — Скрытое королевство -->
+          <div class="cabinet__card">
+            <div class="book-card">
+              <div class="book-card__cover">
+                <img src="/static/img/0197d454-4d86-76b8-9ae7-e7ad9969b88d.png" alt="Скрытое королевство">
+                <span class="book-card__discount">-18%</span>
+                <button class="book-card__fav active" aria-label="В избранное">♥</button>
+              </div>
+              <div class="book-card__info">
+                <p class="book-card__type">Твердая обложка</p>
+                <div class="book-card__prices">
+                  <span class="book-card__old-price">1 219 ₽</span>
+                  <span class="book-card__new-price">999 ₽</span>
+                </div>
+                <p class="book-card__title">Скрытое королевство</p>
+                <p class="book-card__author">Холли Рене</p>
+                <div class="book-card__rating">
+                  <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+                  <span class="book-card__reviews">321</span>
+                </div>
+                <button class="book-card__btn">Купить</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ФУТЕР -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__col">
+      <h3 class="footer__heading">О компании</h3>
+      <ul class="footer__list">
+        <li><a href="#">О FIREBOOKS</a></li>
+        <li><a href="#">Политика конфиденциальности</a></li>
+        <li><a href="#">Вакансии</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h3 class="footer__heading">Покупателям</h3>
+      <ul class="footer__list">
+        <li><a href="#">Программа лояльности</a></li>
+        <li><a href="#">Подарочные сертификаты</a></li>
+        <li><a href="#">Оплата и доставка</a></li>
+        <li><a href="#">Правила возврата</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h3 class="footer__heading">Контакты</h3>
+      <ul class="footer__list">
+        <li><a href="#">Контакты и реквизиты</a></li>
+        <li><a href="#">Помощь и ответы на вопросы</a></li>
+        <li><a href="#">Обратная связь</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <img src="/static/img/Безымянный-1.png" alt="FIREBOOKS" class="logo__img footer__logo">
+
+  <div class="container footer__bottom">
+    <div class="footer__socials">
+      <a href="#" class="social" aria-label="VK">VK</a>
+      <a href="#" class="social" aria-label="Telegram">TG</a>
+      <a href="#" class="social" aria-label="TikTok">TT</a>
+      <a href="#" class="social" aria-label="YouTube">YT</a>
+    </div>
+    <p class="footer__copyright">
+      2024–2026, ООО «ГРАМОТА»<br>
+      <a href="/recommend" class="footer__recommend-link">На информационном ресурсе применяются рекомендательные технологии</a>
+    </p>
+  </div>
+</footer>
+
+<script src="/static/script.js"></script>
+<script src="/static/cabinet.js"></script>
+</body>
+</html>
