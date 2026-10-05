@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оформление заказа — FIREBOOKS</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/cabinet.css">
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header class="header">
+  <div class="container header__inner">
+    <a href="/" class="logo">
+      <img src="/static/img/Безымянный-1.png" alt="FIREBOOKS" class="logo__img">
+    </a>
+
+    <nav class="nav">
+      <ul class="nav__list">
+        <li class="nav__item"><a href="/" class="nav__link">Каталог</a></li>
+        <li class="nav__item"><a href="/my-books" class="nav__link">Мои книги</a></li>
+        <li class="nav__item"><a href="/cart" class="nav__link">Корзина</a></li>
+        <li class="nav__item"><a href="/orders" class="nav__link">Заказы</a></li>
+        <li class="nav__item user-dropdown">
+          <a href="/profile" class="nav__link nav__link--user" id="user-menu">
+            <span class="user-name">Елена</span>
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 1l5 5 5-5"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <form class="search" action="/search" method="get" role="search">
+      <input type="text" name="q" class="search__input" placeholder="Поиск книг...">
+      <button type="submit" class="search__btn" aria-label="Найти">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </form>
+  </div>
+</header>
+
+<!-- ОФОРМЛЕНИЕ ЗАКАЗА -->
+<section class="checkout">
+  <div class="container">
+    <h1 class="cabinet__title">Оформление заказа</h1>
+
+    <div class="checkout__wrapper">
+
+      <!-- ЛЕВАЯ ЧАСТЬ — ФОРМА -->
+      <div class="checkout__form-side">
+
+        <!-- Контактные данные -->
+        <div class="checkout__section">
+          <h2 class="checkout__heading">Контактные данные</h2>
+          <div class="checkout__row">
+            <div class="checkout__field">
+              <label class="checkout__label" for="checkout-name">Имя</label>
+              <input type="text" id="checkout-name" class="checkout__input" placeholder="Ваше имя" required>
+            </div>
+            <div class="checkout__field">
+              <label class="checkout__label" for="checkout-phone">Телефон</label>
+              <input type="tel" id="checkout-phone" class="checkout__input" placeholder="+7 (___) ___-__-__" required>
+            </div>
+          </div>
+          <div class="checkout__field">
+            <label class="checkout__label" for="checkout-email">Email</label>
+            <input type="email" id="checkout-email" class="checkout__input" placeholder="example@mail.ru" required>
+          </div>
+        </div>
+
+        <!-- Способ доставки -->
+        <div class="checkout__section">
+          <h2 class="checkout__heading">Способ доставки</h2>
+          <div class="checkout__options">
+            <label class="checkout__option">
+              <input type="radio" name="delivery" value="pickup" checked>
+              <span class="checkout__option-content">
+                <span class="checkout__option-title">Самовывоз</span>
+                <span class="checkout__option-desc">Из магазина, бесплатно</span>
+              </span>
+            </label>
+            <label class="checkout__option">
+              <input type="radio" name="delivery" value="courier">
+              <span class="checkout__option-content">
+                <span class="checkout__option-title">Курьер</span>
+                <span class="checkout__option-desc">Доставка по городу, 300 ₽</span>
+              </span>
+            </label>
+            <label class="checkout__option">
+              <input type="radio" name="delivery" value="post">
+              <span class="checkout__option-content">
+                <span class="checkout__option-title">Почта России</span>
+                <span class="checkout__option-desc">По всей стране, 250 ₽</span>
+              </span>
+            </label>
+          </div>
+          <div class="checkout__field" id="checkout-address-field">
+            <label class="checkout__label" for="checkout-address">Адрес доставки</label>
+            <input type="text" id="checkout-address" class="checkout__input" placeholder="Город, улица, дом, квартира">
+          </div>
+        </div>
+
+        <!-- Способ оплаты -->
+        <div class="checkout__section">
+          <h2 class="checkout__heading">Способ оплаты</h2>
+          <div class="checkout__options">
+            <label class="checkout__option">
+              <input type="radio" name="payment" value="cash" checked>
+              <span class="checkout__option-content">
+                <span class="checkout__option-title">Наличными при получении</span>
+              </span>
+            </label>
+            <label class="checkout__option">
+              <input type="radio" name="payment" value="card">
+              <span class="checkout__option-content">
+                <span class="checkout__option-title">Картой онлайн</span>
+              </span>
+            </label>
+            <label class="checkout__option">
+              <input type="radio" name="payment" value="bonus">
+              <span class="checkout__option-content">
+                <span class="checkout__option-title">Бонусами</span>
+                <span class="checkout__option-desc">Доступно 17 бонусов</span>
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- ПРАВАЯ ЧАСТЬ — ИТОГ -->
+      <div class="checkout__summary">
+        <h2 class="checkout__heading">Ваш заказ</h2>
+
+        <div class="checkout__items" id="checkout-items">
+          <!-- Заполняется из localStorage -->
+        </div>
+
+        <div class="checkout__total-line">
+          <span>Товары (<span id="checkout-count">0</span> шт.)</span>
+          <span id="checkout-subtotal">0 ₽</span>
+        </div>
+        <div class="checkout__total-line">
+          <span>Доставка</span>
+          <span id="checkout-delivery">0 ₽</span>
+        </div>
+        <div class="checkout__total-line checkout__total-line--final">
+          <span>Итого</span>
+          <span id="checkout-total">0 ₽</span>
+        </div>
+
+        <button class="checkout__btn" id="checkout-submit">Оформить заказ</button>
+
+        <div class="checkout__success" id="checkout-success">
+          <p class="checkout__success-icon">✓</p>
+          <p class="checkout__success-title">Заказ оформлен!</p>
+          <p class="checkout__success-desc">Номер заказа: <strong id="checkout-order-number"></strong></p>
+          <a href="/orders" class="checkout__success-link">Перейти к заказам →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ФУТЕР -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__col">
+      <h3 class="footer__heading">О компании</h3>
+      <ul class="footer__list">
+        <li><a href="#">О FIREBOOKS</a></li>
+        <li><a href="#">Политика конфиденциальности</a></li>
+        <li><a href="#">Вакансии</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h3 class="footer__heading">Покупателям</h3>
+      <ul class="footer__list">
+        <li><a href="#">Программа лояльности</a></li>
+        <li><a href="#">Подарочные сертификаты</a></li>
+        <li><a href="#">Оплата и доставка</a></li>
+        <li><a href="#">Правила возврата</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h3 class="footer__heading">Контакты</h3>
+      <ul class="footer__list">
+        <li><a href="#">Контакты и реквизиты</a></li>
+        <li><a href="#">Помощь и ответы на вопросы</a></li>
+        <li><a href="#">Обратная связь</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <img src="/static/img/Безымянный-1.png" alt="FIREBOOKS" class="logo__img footer__logo">
+
+  <div class="container footer__bottom">
+    <div class="footer__socials">
+      <a href="#" class="social" aria-label="VK">VK</a>
+      <a href="#" class="social" aria-label="Telegram">TG</a>
+      <a href="#" class="social" aria-label="TikTok">TT</a>
+      <a href="#" class="social" aria-label="YouTube">YT</a>
+    </div>
+    <p class="footer__copyright">
+      2024–2026, ООО «ГРАМОТА»<br>
+      <a href="/recommend" class="footer__recommend-link">На информационном ресурсе применяются рекомендательные технологии</a>
+    </p>
+  </div>
+</footer>
+
+<script src="/static/script.js"></script>
+<script src="/static/cabinet.js"></script>
+<script>
+    
+// ─── Логика страницы оформления ───────────────────────────────
+
+document.addEventListener("DOMContentLoaded", function () {
+  var items = JSON.parse(localStorage.getItem("firebooks_checkout") || "[]");
+  var itemsContainer = document.getElementById("checkout-items");
+  var subtotal = 0;
+
+  if (items.length === 0) {
+    itemsContainer.innerHTML = '<p class="checkout__empty">Корзина пуста. <a href="/">Вернуться в каталог</a></p>';
+    document.getElementById("checkout-submit").style.display = "none";
+    return;
+  }
+
+  items.forEach(function (item) {
+    var div = document.createElement("div");
+    div.className = "checkout__item";
+    div.innerHTML =
+      '<img src="' + item.cover + '" alt="' + item.title + '" class="checkout__item-cover">' +
+      '<div class="checkout__item-info">' +
+        '<p class="checkout__item-title">' + item.title + '</p>' +
+        '<p class="checkout__item-author">' + item.author + '</p>' +
+        '<p class="checkout__item-price">' + item.price + ' ₽</p>' +
+      '</div>';
+    itemsContainer.appendChild(div);
+    subtotal += parseInt(item.priceText.replace(/\D/g, ""));
+  });
+
+  document.getElementById("checkout-count").textContent = items.length;
+  document.getElementById("checkout-subtotal").textContent = subtotal.toLocaleString("ru-RU") + " ₽";
+  updateDelivery(subtotal);
+  updateTotal(subtotal);
+
+  // ── Показать/скрыть адрес ──
+  var deliveryRadios = document.querySelectorAll('input[name="delivery"]');
+  var addressField = document.getElementById("checkout-address-field");
+
+  deliveryRadios.forEach(function (radio) {
+    radio.addEventListener("change", function () {
+      if (radio.value === "pickup") {
+        addressField.style.display = "none";
+      } else {
+        addressField.style.display = "";
+      }
+      updateDelivery(subtotal);
+      updateTotal(subtotal);
+    });
+  });
+
+  // ── Пересчёт доставки ──
+  function updateDelivery(sub) {
+    var selected = document.querySelector('input[name="delivery"]:checked').value;
+    var deliveryCost = 0;
+    if (selected === "courier") deliveryCost = 300;
+    else if (selected === "post") deliveryCost = 250;
+    document.getElementById("checkout-delivery").textContent = deliveryCost.toLocaleString("ru-RU") + " ₽";
+  }
+
+  // ── Итог ──
+  function updateTotal(sub) {
+    var selected = document.querySelector('input[name="delivery"]:checked').value;
+    var deliveryCost = 0;
+    if (selected === "courier") deliveryCost = 300;
+    else if (selected === "post") deliveryCost = 250;
+    var total = sub + deliveryCost;
+    document.getElementById("checkout-total").textContent = total.toLocaleString("ru-RU") + " ₽";
+  }
+
+  // ── Заполняем данные пользователя из localStorage ──
+  var savedName = localStorage.getItem("firebooks_user_name");
+  var savedPhone = localStorage.getItem("firebooks_user_phone");
+  var savedEmail = localStorage.getItem("firebooks_user_email");
+
+  if (savedName) document.getElementById("checkout-name").value = savedName;
+  if (savedPhone) document.getElementById("checkout-phone").value = savedPhone;
+  if (savedEmail) document.getElementById("checkout-email").value = savedEmail;
+
+  // ── Оформление заказа ──
+  document.getElementById("checkout-submit").addEventListener("click", function () {
+    var name = document.getElementById("checkout-name").value;
+    var phone = document.getElementById("checkout-phone").value;
+    var email = document.getElementById("checkout-email").value;
+
+    if (!name || !phone || !email) {
+      alert("Заполните имя, телефон и email");
+      return;
+    }
+
+    // Генерируем номер заказа
+    var orderNumber = "№" + Math.floor(100000000 + Math.random() * 900000000);
+
+    // Показываем успех
+    document.getElementById("checkout-order-number").textContent = orderNumber;
+    document.querySelector(".checkout__form-side").style.display = "none";
+    document.getElementById("checkout-submit").style.display = "none";
+    document.getElementById("checkout-success").style.display = "block";
+
+    // Очищаем корзину
+    localStorage.removeItem("firebooks_checkout");
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Книга — FIREBOOKS</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/cabinet.css">
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header class="header">
+  <div class="container header__inner">
+    <a href="/" class="logo">
+      <img src="/static/img/Безымянный-1.png" alt="FIREBOOKS" class="logo__img">
+    </a>
+    <nav class="nav">
+      <ul class="nav__list">
+        <li class="nav__item"><a href="/" class="nav__link">Каталог</a></li>
+        <li class="nav__item"><a href="/my-books" class="nav__link">Мои книги</a></li>
+        <li class="nav__item"><a href="/cart" class="nav__link">Корзина</a></li>
+        <li class="nav__item"><a href="/orders" class="nav__link">Заказы</a></li>
+        <li class="nav__item user-dropdown">
+          <a href="/profile" class="nav__link nav__link--user" id="user-menu">
+            <span class="user-name">Елена</span>
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 1l5 5 5-5"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <form class="search" action="/search" method="get" role="search">
+      <input type="text" name="q" class="search__input" placeholder="Поиск книг...">
+      <button type="submit" class="search__btn" aria-label="Найти">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </form>
+  </div>
+</header>
+
+<!-- СТРАНИЦА КНИГИ -->
+<div class="book-page">
+  <div class="book-page__wrapper">
+    <!-- Левая колонка: обложка -->
+    <div class="book-page__cover-side">
+      <img src="{{cover_url}}" alt="{{title}}" class="book-page__cover" />
+      <button class="book-page__fav" aria-label="В избранное">♥</button>
+    </div>
+
+    <!-- Центральная колонка: основная информация -->
+    <div class="book-page__info">
+      <span class="book-page__type">{{cover_type}}</span>
+      <h1 class="book-page__title">{{title}}</h1>
+      <p class="book-page__author">Автор: <strong>{{author}}</strong></p>
+
+      <div class="book-page__rating">
+        <div class="book-page__stars" id="book-stars">{{starsHTML(rating)}}</div>
+        <span class="book-page__rating-num">{{rating}} (47 отзывов)</span>
+      </div>
+
+      <div class="book-page__prices">
+        <span class="book-page__old-price">{{formatPrice(old_price)}}</span>
+        <span class="book-page__new-price">{{formatPrice(new_price)}}</span>
+        <span class="book-page__discount">-22%</span>
+      </div>
+
+      <div class="book-page__actions">
+        <button class="btn--primary" onclick="addToCart()">Купить</button>
+        <button class="book-page__cart-btn" onclick="addToCart()">В корзину</button>
+      </div>
+
+      <div class="book-page__meta">
+        <div class="book-page__meta-row">
+          <span class="book-page__meta-label">Издательство</span>
+          <span class="book-page__meta-value">Кислород</span>
+        </div>
+        <div class="book-page__meta-row">
+          <span class="book-page__meta-label">Год издания</span>
+          <span class="book-page__meta-value">2024</span>
+        </div>
+        <div class="book-page__meta-row">
+          <span class="book-page__meta-label">Страниц</span>
+          <span class="book-page__meta-value">912</span>
+        </div>
+        <div class="book-page__meta-row">
+          <span class="book-page__meta-label">ISBN</span>
+          <span class="book-page__meta-value">978-5-353-10858-0</span>
+        </div>
+        <div class="book-page__meta-row">
+          <span class="book-page__meta-label">Переплёт</span>
+          <span class="book-page__meta-value">Твёрдый переплёт</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Правая колонка: описание и отзывы -->
+  <div class="book-page__description">
+    <h2 class="book-page__heading">Описание</h2>
+    <p class="book-page__desc-text" id="book-desc-text">
+      {{description}}
+    </p>
+    <button class="review-block__toggle" id="toggle-desc">Читать больше</button>
+  </div>
+
+  <div class="book-page__reviews-section">
+    <h2 class="book-page__heading">Отзывы</h2>
+    <div class="reviews-list" id="reviews-list">
+      <!-- Сюда JS будет вставлять отзывы -->
+    </div>
+  </div>
+</div>
+
+<!-- ФУТЕР -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__col">
+      <h3 class="footer__heading">О компании</h3>
+      <ul class="footer__list">
+        <li><a href="#">О FIREBOOKS</a></li>
+        <li><a href="#">Политика конфиденциальности</a></li>
+        <li><a href="#">Вакансии</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h3 class="footer__heading">Покупателям</h3>
+      <ul class="footer__list">
+        <li><a href="#">Программа лояльности</a></li>
+        <li><a href="#">Подарочные сертификаты</a></li>
+        <li><a href="#">Оплата и доставка</a></li>
+        <li><a href="#">Правила возврата</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h3 class="footer__heading">Контакты</h3>
+      <ul class="footer__list">
+        <li><a href="#">Контакты и реквизиты</a></li>
+        <li><a href="#">Помощь и ответы на вопросы</a></li>
+        <li><a href="#">Обратная связь</a></li>
+      </ul>
+    </div>
+  </div>
+  <img src="/static/img/Безымянный-1.png" alt="FIREBOOKS" class="logo__img footer__logo">
+  <div class="container footer__bottom">
+    <div class="footer__socials">
+      <a href="#" class="social" aria-label="VK">VK</a>
+      <a href="#" class="social" aria-label="Telegram">TG</a>
+      <a href="#" class="social" aria-label="TikTok">TT</a>
+      <a href="#" class="social" aria-label="YouTube">YT</a>
+    </div>
+    <p class="footer__copyright">
+      2024–2026, ООО «ГРАМОТА»<br>
+      <a href="/recommend" class="footer__recommend-link">На информационном ресурсе применяются рекомендательные технологии</a>
+    </p>
+  </div>
+</footer>
+
+<script src="/static/script.js"></script>
+<script src="/static/cabinet.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var params = new URLSearchParams(window.location.search);
+  var bookId = params.get("id");
+
+  if (!bookId) {
+    document.querySelector(".book-page__wrapper").innerHTML =
+      '<p style="color:#999;padding:40px 0">Книга не найдена. <a href="/">Вернуться в каталог</a></p>';
+    return;
+  }
+
+  fetch("/api/books/" + bookId)
+    .then(function (res) {
+      if (!res.ok) throw new Error("Не найдено");
+      return res.json();
+    })
+    .then(function (book) {
+      document.title = book.title + " — FIREBOOKS";
+
+      document.getElementById("bp-cover").src = book.cover_url;
+      document.getElementById("bp-cover").alt = book.title;
+      document.getElementById("bp-type").textContent = book.cover_type || "";
+      document.getElementById("bp-title").textContent = book.full_title || book.title;
+      document.getElementById("bp-author").textContent = book.author || "";
+
+      document.getElementById("bp-stars").innerHTML = starsHTML(book.rating);
+      document.getElementById("bp-rating-num").textContent = book.rating + ".0";
+      document.getElementById("bp-reviews").textContent = (book.reviews_count || 0) + " отзывов";
+
+      if (book.old_price) {
+        document.getElementById("bp-old-price").textContent = formatPrice(book.old_price);
+      }
+      document.getElementById("bp-new-price").textContent = formatPrice(book.new_price);
+      if (book.discount) {
+        document.getElementById("bp-discount").textContent = "-" + book.discount + "%";
+      }
+
+      document.getElementById("bp-publisher").textContent = book.publisher || "—";
+      document.getElementById("bp-year").textContent = book.year || "—";
+      document.getElementById("bp-pages").textContent = book.pages || "—";
+      document.getElementById("bp-isbn").textContent = book.isbn || "—";
+      document.getElementById("bp-cover-type").textContent = book.cover_type || "—";
+
+      document.getElementById("bp-description").textContent = book.description || "Описание отсутствует.";
+
+      if (book.reviews && book.reviews.length) {
+        var html = book.reviews.map(function (rev) {
+          return '<div class="review-block">' +
+            '<div class="review-block__header">' +
+              '<span class="review-block__avatar">' + (rev.author.charAt(0)) + '</span>' +
+              '<span class="review-block__author">' + rev.author + '</span>' +
+              '<span class="review-block__rating">' + starsHTML(rev.rating) + '</span>' +
+            '</div>' +
+            '<p class="review-block__text review-block__text--clamped">' + rev.text + '</p>' +
+            '<button class="review-block__toggle">Читать больше</button>' +
+          '</div>';
+        }).join("");
+        document.getElementById("bp-reviews-list").innerHTML = html;
+        initToggleButtons();
+      } else {
+        document.getElementById("bp-reviews-list").innerHTML =
+          '<p style="color:#999;padding:20px 0">Пока нет отзывов. Будьте первым!</p>';
+      }
+
+      // Купить
+      document.getElementById("bp-buy").addEventListener("click", function () {
+        var item = {
+          cover: book.cover_url,
+          title: book.full_title || book.title,
+          author: book.author,
+          price: formatPrice(book.new_price),
+          priceText: formatPrice(book.new_price)
+        };
+        var items = JSON.parse(localStorage.getItem("firebooks_checkout") || "[]");
+        items.push(item);
+        localStorage.setItem("firebooks_checkout", JSON.stringify(items));
+        window.location.href = "/checkout";
+      });
+
+      // В корзину
+      document.getElementById("bp-cart").addEventListener("click", function () {
+        var cart = JSON.parse(localStorage.getItem("firebooks_cart") || "[]");
+        cart.push({
+          cover: book.cover_url,
+          title: book.full_title || book.title,
+          author: book.author,
+          price: formatPrice(book.new_price),
+          priceText: formatPrice(book.new_price)
+        });
+        localStorage.setItem("firebooks_cart", JSON.stringify(cart));
+        document.getElementById("bp-cart").textContent = "Добавлено ✓";
+        setTimeout(function () {
+          document.getElementById("bp-cart").textContent = "В корзину";
+        }, 2000);
+      });
+
+      // Избранное
+      document.getElementById("bp-fav").addEventListener("click", function () {
+        this.classList.toggle("active");
+      });
+    })
+    .catch(function (err) {
+      console.error(err);
+      document.querySelector(".book-page__wrapper").innerHTML =
+        '<p style="color:#999;padding:40px 0">Книга не найдена. <a href="/">Вернуться в каталог</a></p>';
+    });
+});
+</script>
+</body>
+</html>

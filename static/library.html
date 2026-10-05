@@ -426,6 +426,42 @@
   </div>
 </footer>
 
+<!-- МОДАЛКА ОТЗЫВА -->
+<div class="modal" id="review-modal">
+  <div class="modal__content">
+    <span class="modal__close" id="review-close">&times;</span>
+    <h3 class="modal__title">Написать отзыв</h3>
+
+    <div class="review-modal__book">
+      <img id="review-modal-cover" src="" alt="">
+      <div>
+        <p class="review-modal__book-title" id="review-modal-title"></p>
+        <p class="review-modal__book-author" id="review-modal-author"></p>
+        <div class="review-modal__stars">
+          <span class="review-star" data-value="1">★</span>
+          <span class="review-star" data-value="2">★</span>
+          <span class="review-star" data-value="3">★</span>
+          <span class="review-star" data-value="4">★</span>
+          <span class="review-star" data-value="5">★</span>
+        </div>
+      </div>
+    </div>
+
+    <form class="modal__form" id="review-form">
+      <div class="modal__field">
+        <label for="review-text" class="modal__label">Ваш отзыв</label>
+        <textarea id="review-text" class="review-modal__textarea" placeholder="Поделитесь впечатлениями о книге..." required></textarea>
+      </div>
+      <button type="submit" class="modal__btn">Отправить отзыв</button>
+    </form>
+
+    <div class="review-modal__success" id="review-success">
+      <p>✓ Отзыв отправлен и находится в обработке</p>
+      <p class="review-modal__success-sub">Начислим 30 бонусов после проверки</p>
+    </div>
+  </div>
+</div>
+
 <script src="/static/script.js"></script>
 <script src="/static/cabinet.js"></script>
 </body>

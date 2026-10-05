@@ -620,6 +620,12 @@ img { max-width: 100%; display: block; }
   color: var(--burgundy);
 }
 
+.modal__optional {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
 
 /* ─── Корзина ───────────────────────────────────────────────── */
 
@@ -1296,6 +1302,787 @@ img { max-width: 100%; display: block; }
   margin-left: 6px;
 }
 
+/* ─── Страница оформления заказа ────────────────────────────── */
+
+.checkout {
+  padding: 48px 0;
+}
+
+.checkout__wrapper {
+  display: flex;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  align-items: flex-start;
+}
+
+.checkout__form-side {
+  flex: 1;
+  min-width: 0;
+}
+
+.checkout__section {
+  margin-bottom: 32px;
+}
+
+.checkout__heading {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e8e0d4;
+}
+
+.checkout__row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.checkout__field {
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.checkout__label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.checkout__input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #d4c9b8;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.checkout__input:focus {
+  border-color: var(--brown-light);
+}
+
+/* Варианты доставки/оплаты */
+.checkout__options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checkout__option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 18px;
+  border: 1px solid #e8e0d4;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.checkout__option:hover {
+  border-color: var(--brown-light);
+}
+
+.checkout__option input[type="radio"]:checked + .checkout__option-content {
+  color: var(--burgundy);
+}
+
+.checkout__option:has(input:checked) {
+  border-color: var(--burgundy);
+  background: #faf8f5;
+}
+
+.checkout__option input[type="radio"] {
+  margin-top: 3px;
+  accent-color: var(--burgundy);
+  width: 18px;
+  height: 18px;
+}
+
+.checkout__option-title {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.checkout__option-desc {
+  display: block;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Правая часть — итог */
+.checkout__summary {
+  flex-shrink: 0;
+  width: 360px;
+  background: var(--white);
+  border: 1px solid #e8e0d4;
+  border-radius: 12px;
+  padding: 24px;
+  position: sticky;
+  top: 24px;
+}
+
+.checkout__items {
+  margin-bottom: 20px;
+}
+
+.checkout__item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.checkout__item-cover {
+  width: 50px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.checkout__item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.checkout__item-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.checkout__item-author {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.checkout__item-price {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--burgundy);
+}
+
+.checkout__total-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.checkout__total-line--final {
+  border-top: 2px solid #e8e0d4;
+  margin-top: 8px;
+  padding-top: 16px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.checkout__btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  background: var(--burgundy);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.checkout__btn:hover {
+  background: var(--burgundy-dark);
+}
+
+.checkout__empty {
+  font-size: 14px;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Успех */
+.checkout__success {
+  display: none;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.checkout__success-icon {
+  font-size: 48px;
+  color: #4caf50;
+  margin-bottom: 16px;
+}
+
+.checkout__success-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.checkout__success-desc {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.checkout__success-link {
+  display: inline-block;
+  padding: 10px 24px;
+  background: var(--burgundy);
+  color: var(--white);
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.checkout__success-link:hover {
+  background: var(--burgundy-dark);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .checkout__wrapper {
+    flex-direction: column;
+    padding: 0 16px;
+  }
+
+  .checkout__summary {
+    width: 100%;
+    position: static;
+  }
+
+  .checkout__row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+/* ─── Кнопка «Смотреть все» ──────────────────────────────────── */
+
+.view-all-btn {
+  display: block;
+  margin: 24px auto 0;
+  padding: 12px 32px;
+  background: transparent;
+  color: var(--burgundy);
+  border: 2px solid var(--burgundy);
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.view-all-btn:hover {
+  background: var(--burgundy);
+  color: var(--white);
+}
+
+/* ─── Страница книги ─────────────────────────────────────────── */
+
+.book-page {
+  padding: 56px 0 80px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+.book-page__wrapper {
+  display: flex;
+  gap: 56px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+/* Обложка */
+.book-page__cover-side {
+  flex-shrink: 0;
+  position: relative;
+}
+
+.book-page__cover {
+  width: 280px;
+  height: 410px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(109, 41, 49, 0.08), 0 20px 48px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.book-page__cover:hover {
+  transform: translateY(-4px);
+}
+
+.book-page__fav {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.95);
+  font-size: 22px;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.25s, transform 0.25s, background 0.25s;
+  backdrop-filter: blur(4px);
+  z-index: 10;
+}
+
+.book-page__fav:hover {
+  transform: scale(1.12);
+  color: #999;
+}
+
+.book-page__fav.active {
+  color: #8b2a24; /* Бордовый */
+  background: rgba(255, 255, 255, 1);
+}
+
+/* Основная информация */
+.book-page__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.book-page__type {
+  font-size: 13px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 10px;
+}
+
+.book-page__title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  line-height: 1.25;
+  letter-spacing: -0.3px;
+}
+
+.book-page__author {
+  font-size: 17px;
+  color: #666;
+  margin-bottom: 22px;
+  font-style: italic;
+}
+
+/* Рейтинг */
+.book-page__rating {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.book-page__stars {
+  display: flex;
+  gap: 3px;
+}
+
+.book-page__stars .star {
+  font-size: 19px;
+  color: #e0d6c8;
+}
+
+.book-page__stars .star.filled {
+  color: #d49a3a;
+}
+
+.book-page__rating-num {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+/* Цены */
+.book-page__prices {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 28px;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #faf6f0 0%, #f3ece2 100%);
+  border-radius: 12px;
+  border: 1px solid #ece3d5;
+}
+
+.book-page__old-price {
+  font-size: 18px;
+  color: #999;
+  text-decoration: line-through;
+  text-decoration-color: #c9a8a8;
+}
+
+.book-page__new-price {
+  font-size: 32px;
+  font-weight: 800;
+  color: #8b2a24; /* Бордовый */
+  letter-spacing: -0.5px;
+}
+
+.book-page__discount {
+  padding: 5px 12px;
+  background: #8b2a24;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+/* Кнопки */
+.book-page__actions {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+.btn--primary {
+  padding: 15px 36px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #8b2a24 0%, #5a1e26 100%);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 14px rgba(109, 41, 49, 0.25);
+}
+
+.btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(109, 41, 49, 0.35);
+}
+
+.book-page__cart-btn {
+  padding: 15px 32px;
+  border: 2px solid #8b2a24;
+  background: transparent;
+  color: #8b2a24;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.book-page__cart-btn:hover {
+  background: #8b2a24;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Мета-данные */
+.book-page__meta {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 0;
+  border-top: 1px solid #eee5d8;
+}
+
+.book-page__meta-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 13px 0;
+  border-bottom: 1px solid #f2ebe0;
+  transition: background 0.2s;
+  border-radius: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.book-page__meta-row:hover {
+  background: #faf7f2;
+}
+
+.book-page__meta-label {
+  font-size: 14px;
+  color: #888;
+}
+
+.book-page__meta-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+  text-align: right;
+}
+
+/* Описание */
+.book-page__description {
+  max-width: 1100px;
+  margin: 56px auto 0;
+}
+
+.book-page__heading {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid #ece3d5;
+  position: relative;
+}
+
+.book-page__heading::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: #8b2a24;
+}
+
+.book-page__desc-text {
+  font-size: 16px;
+  line-height: 1.85;
+  color: #3a322c;
+  max-width: 760px;
+}
+
+.book-page__desc-text.clamped {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.review-block__toggle {
+  margin-top: 10px;
+  background: none;
+  border: none;
+  color: #8b2a24;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0;
+  transition: opacity 0.2s;
+}
+
+.review-block__toggle:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+/* Отзывы */
+.book-page__reviews-section {
+  max-width: 1100px;
+  margin: 56px auto 0;
+}
+
+.review-block {
+  padding: 24px 0;
+  border-bottom: 1px solid #f0ebe2;
+  transition: background 0.2s;
+}
+
+.review-block:hover {
+  background: #faf8f4;
+  border-radius: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: -16px;
+  margin-right: -16px;
+}
+
+.review-block__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.review-block__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b2a24 0%, #5a1e26 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.review-block__author {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.review-block__rating {
+  display: flex;
+  gap: 2px;
+}
+
+.review-block__rating .star {
+  font-size: 15px;
+  color: #e0d6c8;
+}
+
+.review-block__rating .star.filled {
+  color: #d49a3a;
+}
+
+.review-block__text {
+  font-size: 15px;
+  line-height: 1.75;
+  color: #4a4038;
+}
+
+.review-block__text--clamped {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .book-page__wrapper {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .book-page__cover {
+    width: 220px;
+    height: 320px;
+    margin: 0 auto;
+  }
+
+  .book-page__title {
+    font-size: 24px;
+  }
+
+  .book-page__new-price {
+    font-size: 26px;
+  }
+
+  .book-page__prices {
+    padding: 16px 18px;
+  }
+
+  .book-page__actions {
+    flex-direction: column;
+  }
+
+  .book-page__desc-text {
+    font-size: 15px;
+  }
+
+  .book-page__heading {
+    font-size: 20px;
+  }
+}
+
+/* ─── Автоподсказки поиска ──────────────────────────────────── */
+
+.search-suggest {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 200;
+  margin-top: 4px;
+}
+
+.search-suggest__item {
+  display: flex;
+  gap: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+  border-bottom: 1px solid #f5f0ea;
+}
+
+.search-suggest__item:last-child {
+  border-bottom: none;
+}
+
+.search-suggest__item:hover {
+  background: #faf8f5;
+}
+
+.search-suggest__cover {
+  width: 40px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.search-suggest__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.search-suggest__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-suggest__author {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.search-suggest__price {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--burgundy);
+}
+
+.search-suggest__empty {
+  padding: 16px 14px;
+  font-size: 14px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+
 /* ─── Адаптивность ───────────────────────────────────────────── */
 
 @media (max-width: 992px) {
@@ -1599,6 +2386,85 @@ img { max-width: 100%; display: block; }
   font-size: 15px;
   color: var(--text-muted);
 }
+
+/* ─── Модалка отзыва ─────────────────────────────────────────── */
+
+.review-modal__book {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.review-modal__book img {
+  width: 60px;
+  height: 85px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.review-modal__book-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.review-modal__book-author {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.review-modal__stars {
+  display: flex;
+  gap: 4px;
+}
+
+.review-modal__stars .review-star {
+  font-size: 26px;
+}
+
+.review-modal__textarea {
+  width: 100%;
+  min-height: 140px;
+  padding: 12px 16px;
+  border: 1px solid #d4c9b8;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.2s;
+}
+
+.review-modal__textarea:focus {
+  border-color: var(--brown-light);
+}
+
+.review-modal__success {
+  display: none;
+  text-align: center;
+  padding: 28px 0;
+}
+
+.review-modal__success p:first-child {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.review-modal__success-sub {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
 
 /* Адаптивность профиля */
 @media (max-width: 768px) {
